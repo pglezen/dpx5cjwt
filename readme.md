@@ -16,7 +16,7 @@ lacks support for using the `x5c` header
 to transmit the public key.
 Instead, it relies on information local to the appliance
 to identify a key on the appliance.  This information can
-be use to retrieve a configured certificate on another appliance.
+be used to retrieve a configured certificate on another appliance.
 But the local key information is not much use for other systems
 wishing to verify the JWT.
 
@@ -30,7 +30,7 @@ browsers will (silently) refuse to store cookies greater
 than 4kb.  (cURL, however, will not complain.)  So if your
 JWT is already fat with a few dozen claims, an `x5c`
 header may push it over the 4kb threshold.  This was the case
-for my scenario so I ultimately abandoned this.
+for my scenario; so I ultimately abandoned this.
 
 ## Design
 
@@ -56,7 +56,7 @@ I divided the function into two DataPower components:
 I started this way because I felt the separation of concerns
 would allow for reuse of the authentication server (AS) across
 several enforcement point (EP) implementations.  I also like
-how WTP services automatically loopback.
+how WTS services automatically loopback.
 If I had to do
 it again, I'd probably combine them into a single MPGW.  I didn't
 have the occasion to implement more than one EP.  And having the
